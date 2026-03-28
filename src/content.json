@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "title": "Zapraszam do profesjonalnej psychoterapii",
+    "subtitle": "Dorośli, dzieci, przedsiębiorcy. Nowoczesne metody, pełna dyskrecja.",
+    "description": "Zapraszam Państwa do skorzystania z profesjonalnej pomocy psychologiczno - terapeutycznej. Pracuję z osobami dorosłymi, a także z dziećmi i młodzieżą. Osobami prywatnymi, jak również z przedsiębiorcami. Oferuję również terapię online."
+  },
+  "keywords": ["Diagnoza", "Wsparcie", "Terapia", "Indywidualnie", "Grupowo"],
+  "services": [
+    {
+      "id": "dzieci",
+      "title": "Oferta dla dzieci",
+      "description": "Pracuję z dziećmi w każdym wieku. Zapraszam do zapoznania się z moją ofertą przygotowaną specjalnie dla najmłodszych, pomagającą w ich rozwoju i pokonywaniu trudności."
+    },
+    {
+      "id": "dorosli",
+      "title": "Oferta dla dorosłych",
+      "description": "Pomoc psychoterapeutyczna dotyka również coraz to większą ilość osób. Współczesne tempo sprawia, że czasami potrzebujemy jakiegoś impulsu. Sposobu na ogarnięcie tego wszystkiego. Zapraszam do zapoznania się z moją ofertą odnośnie pomocy dla dorosłych."
+    }
+  ],
+  "pricing": {
+    "intro": "Zapraszam do zapoznania się z przykładowym cennikiem. Każdy przypadek jest dla mnie indywidualny. Rabaty dla stałych pacjentów. W ofercie również diagnoza psychologiczna.",
+    "items": [
+      {
+        "name": "Konsultacje indywidualne",
+        "price": "200 zł",
+        "duration": "50 minut"
+      },
+      {
+        "name": "Terapia indywidualna",
+        "price": "200 zł",
+        "duration": "50 minut"
+      },
+      {
+        "name": "Terapia rodzinna",
+        "price": "300 / 350 zł",
+        "duration": "60 / 90 minut"
+      },
+      {
+        "name": "Terapia par",
+        "price": "300 / 350 zł",
+        "duration": "60 / 90 minut"
+      }
+    ]
+  },
+  "about": {
+    "name": "mgr Łukasz Piątek",
+    "short_desc": "Oferuję profesjonalną pomoc psychologiczno-terapeutyczną, we wszystkich grupach wiekowych. Prowadzę gabinet w ścisłym centrum Wrocławia. Oferuję również konsultacje online, z wykorzystaniem najnowszych kanałów komunikacji.",
+    "long_desc": "Ukończyłem psychologię ze specjalnością kliniczną w Szkole Wyższej Psychologii Społecznej we Wrocławiu. Po studiach magisterskich ukończyłem następujące studia podyplomowe: Przygotowanie Pedagogiczne, Socjoterapię, Spektrum Autyzmu. Diagnoza, terapia edukacja. Obecnie uczestniczę w całościowym, czteroletnim szkoleniu do certyfikatu z psychoterapii poznawczo-behawioralnej, na Uniwersytecie Humanistycznospołecznym SWPS we Wrocławiu. Jestem w trakcie licencji Terapeuty Behawioralnego w PSTB w Krakowie. Doświadczenie zawodowe zdobywałem pracując na oddziale psychiatrycznym dla dzieci i młodzieży, jak i na oddziale psychiatrycznym ogólnym dla dorosłych. Poza tym pracowałem w licznych projektach unijnych mających na celu aktywizację i terapię osób niepełnosprawnych, dzieci i młodzieży. Obecnie pracuję również w Poradni Psychologiczno-Pedagogicznej we Wrocławiu."
+  },
+  "contact": {
+    "address": "50-314 Wrocław, ul. Nowowiejska 26",
+    "phone": "732 193 813",
+    "email": "psychologlukasz@gmail.com",
+    "online_note": "Sesje online przeprowadzane są z wykorzystaniem platformy Google Meet, zapewniającej dyskrecję, najwyższą jakość połączenia i brak konieczności zakładania kont przez pacjentów."
+  }
+}
