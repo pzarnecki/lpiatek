@@ -219,9 +219,6 @@ function App() {
             <div>
               <h3 className="footer-title">Online</h3>
               <p className="footer-text">{contact.online_note}</p>
-              <div style={{marginTop: '20px'}}>
-                <a href="#admin" style={{fontSize: '0.8rem', color: 'rgba(255,255,255,0.2)'}}>Panel Administracyjny</a>
-              </div>
             </div>
           </div>
           <div style={{textAlign: 'center', paddingTop: '30px', borderTop: '1px solid var(--glass-border)', color: 'var(--text-secondary)', fontSize: '0.9rem'}}>
