@@ -70,11 +70,28 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary);
+  position: relative;
+  padding: 4px 0;
+  transition: var(--transition);
+}
+
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-sand);
   transition: var(--transition);
 }
 
 .nav-links a:hover, .nav-links a.active {
   color: var(--text-primary);
+}
+
+.nav-links a:not(.btn):hover::after, .nav-links a:not(.btn).active::after {
+  width: 100%;
 }
 
 /* Background Glowing Blobs Animation */
@@ -491,5 +508,44 @@
   }
   .section-subtitle {
     margin-bottom: 40px;
+  }
+}
+
+/* Banner plików cookies (RODO) */
+.cookie-banner {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: var(--radius-card);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+}
+
+.cookie-banner-content {
+  display: flex;
+  align-items: flex-start;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: none;
+    padding: 16px;
   }
 }

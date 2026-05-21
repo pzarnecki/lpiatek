@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import data from './content.json';
 
@@ -15,15 +15,58 @@ const UserIcon = () => (
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [showCookieConsent, setShowCookieConsent] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Scrollspy using IntersectionObserver
+    const sections = ['home', 'services', 'pricing', 'about', 'contact'];
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px', // Trigger when section occupies upper-middle viewport
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    // Check cookie consent with elegant delay
+    const consent = localStorage.getItem('cookieConsent');
+    let cookieTimer;
+    if (!consent) {
+      cookieTimer = setTimeout(() => setShowCookieConsent(true), 2500);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (cookieTimer) clearTimeout(cookieTimer);
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) observer.unobserve(element);
+      });
+    };
   }, []);
 
   const { hero, keywords, services, pricing, about, contact } = data;
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    setShowCookieConsent(false);
+  };
 
   // Simple "routing" for Admin panel
   if (window.location.hash === '#admin') {
@@ -115,11 +158,11 @@ function App() {
           </div>
           
           <div className="nav-links desktop-only">
-            <a href="#home">Strona Główna</a>
-            <a href="#services">Usługi</a>
-            <a href="#pricing">Cennik</a>
-            <a href="#about">O mnie</a>
-            <a href="#contact" className="btn btn-secondary" style={{padding: '8px 20px'}}>Kontakt</a>
+            <a href="#home" className={activeSection === 'home' ? 'active' : ''}>Strona Główna</a>
+            <a href="#services" className={activeSection === 'services' ? 'active' : ''}>Usługi</a>
+            <a href="#pricing" className={activeSection === 'pricing' ? 'active' : ''}>Cennik</a>
+            <a href="#about" className={activeSection === 'about' ? 'active' : ''}>O mnie</a>
+            <a href="#contact" className={activeSection === 'contact' ? 'btn btn-secondary active' : 'btn btn-secondary'} style={{padding: '8px 20px'}}>Kontakt</a>
           </div>
 
           {/* Otwieranie Menu (Mobile) */}
@@ -142,11 +185,11 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
-            <a href="#home" onClick={() => setIsMenuOpen(false)}>Strona Główna</a>
-            <a href="#services" onClick={() => setIsMenuOpen(false)}>Usługi</a>
-            <a href="#pricing" onClick={() => setIsMenuOpen(false)}>Cennik</a>
-            <a href="#about" onClick={() => setIsMenuOpen(false)}>O mnie</a>
-            <a href="#contact" className="btn btn-secondary" onClick={() => setIsMenuOpen(false)}>Kontakt</a>
+            <a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Strona Główna</a>
+            <a href="#services" className={activeSection === 'services' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Usługi</a>
+            <a href="#pricing" className={activeSection === 'pricing' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Cennik</a>
+            <a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>O mnie</a>
+            <a href="#contact" className={activeSection === 'contact' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={() => setIsMenuOpen(false)}>Kontakt</a>
           </motion.div>
         )}
       </header>
@@ -310,6 +353,31 @@ function App() {
         </div>
         Umów wizytę
       </motion.a>
+
+      {/* Cookie Consent Banner */}
+      <AnimatePresence>
+        {showCookieConsent && (
+          <motion.div 
+            className="cookie-banner glass"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 30, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div className="cookie-banner-content">
+              <span style={{ fontSize: '1.4rem', marginRight: '12px', marginTop: '-2px' }}>🍪</span>
+              <p>
+                Ta strona korzysta z plików cookies (ciasteczek), aby świadczyć usługi na najwyższym poziomie i w sposób bezpieczny. Możesz określić warunki ich przechowywania lub dostępu w swojej przeglądarce.
+              </p>
+            </div>
+            <div className="cookie-banner-actions">
+              <button className="btn btn-primary" style={{ padding: '8px 20px', fontSize: '0.85rem' }} onClick={handleAcceptCookies}>
+                Akceptuję
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
