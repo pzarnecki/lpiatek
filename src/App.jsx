@@ -18,8 +18,14 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showCookieConsent, setShowCookieConsent] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Delikatny preloader
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+
     const handleScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
 
@@ -54,6 +60,7 @@ function App() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (loadingTimer) clearTimeout(loadingTimer);
       if (cookieTimer) clearTimeout(cookieTimer);
       sections.forEach((id) => {
         const element = document.getElementById(id);
@@ -100,6 +107,38 @@ function App() {
 
   return (
     <>
+      {/* Preloader */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            key="preloader"
+            className="preloader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, filter: "blur(10px)", scale: 1.05 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="preloader-content"
+            >
+              <div className="preloader-title">Psycholog <span style={{color: 'var(--accent-sand)'}}>•</span> Psychoterapeuta</div>
+              <div className="preloader-subtitle">mgr Łukasz Piątek</div>
+              
+              <div className="loading-line-container">
+                <motion.div 
+                   className="loading-line"
+                   initial={{ width: "0%" }}
+                   animate={{ width: "100%" }}
+                   transition={{ duration: 1.8, ease: "easeInOut" }}
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
       
