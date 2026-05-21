@@ -15,6 +15,7 @@ const UserIcon = () => (
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showCookieConsent, setShowCookieConsent] = useState(false);
 
