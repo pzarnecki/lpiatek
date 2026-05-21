@@ -18,7 +18,7 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -32,19 +32,48 @@ function App() {
 
   // Animation variants
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 1.2, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    }
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        staggerChildren: 0.25,
+        delayChildren: 0.2
+      } 
+    }
   };
 
   return (
     <>
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
+      
+      {/* Floating Świetlik - Only visible when scrolled down */}
+      <motion.div 
+        className="blob-point"
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: scrolled ? 0.2 : 0,
+          x: [0, 200, 400, 0],
+          y: [0, 300, 100, 0],
+        }}
+        transition={{ 
+          opacity: { duration: 0.8 },
+          x: { duration: 50, repeat: Infinity, ease: "linear" },
+          y: { duration: 50, repeat: Infinity, ease: "linear" }
+        }}
+      />
       
       {/* Navigation - Pływające Menu */}
       <header className={`navbar-header ${scrolled ? 'scrolled glass' : ''}`}>
@@ -97,7 +126,7 @@ function App() {
           className="hero"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={fadeInUp}
         >
           <h2 className="hero-subtitle">{hero.subtitle}</h2>
@@ -122,25 +151,25 @@ function App() {
           className="section"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
         >
           <h2 className="section-title">Jak mogę pomóc?</h2>
           <p className="section-subtitle">Specjalistyczna wsparcie dostosowane do Twoich unikalnych potrzeb w bezpiecznym, dyskretnym środowisku.</p>
           
-          <motion.div className="cards" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <motion.div className="cards" variants={staggerContainer}>
             {services.map((service) => (
               <motion.div 
                 key={service.id} 
                 className="card glass" 
                 variants={fadeInUp}
                 whileHover={{ 
-                  y: -15, 
+                  y: -10, 
                   scale: 1.02, 
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.5)",
+                  backgroundColor: "rgba(255, 255, 255, 0.05)",
                   borderColor: "rgba(255, 255, 255, 0.25)"
                 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
               >
                 <div className="card-icon">
                   {service.id === 'dzieci' ? <HeartIcon /> : <UserIcon />}
@@ -159,13 +188,17 @@ function App() {
           className="section"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
         >
           <h2 className="section-title">Cennik Usług</h2>
           <p className="section-subtitle">{pricing.intro}</p>
           
-          <div className="pricing-wrapper glass" style={{borderRadius: 'var(--radius-card)', padding: '20px 0'}}>
+          <motion.div 
+            className="pricing-wrapper glass" 
+            style={{borderRadius: 'var(--radius-card)', padding: '20px 0'}}
+            variants={fadeInUp}
+          >
             {pricing.items.map((item, idx) => (
               <div key={idx} className="pricing-item">
                 <div className="price-details">
@@ -175,7 +208,7 @@ function App() {
                 <div className="price-value">{item.price}</div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* About */}
@@ -184,10 +217,14 @@ function App() {
           className="section"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
         >
-          <div className="about-grid glass" style={{padding: '60px', borderRadius: 'var(--radius-card)'}}>
+          <motion.div 
+            className="about-grid glass" 
+            style={{padding: '60px', borderRadius: 'var(--radius-card)'}}
+            variants={fadeInUp}
+          >
             <div className="about-img">
               <img src="https://psychoterapiawroclaw.com.pl/images/41a861f963902c875ed8c429b38660e3_large.jpg" alt="mgr Łukasz Piątek" onError={(e) => { e.target.onerror = null; e.target.src = "https://psychoterapiawroclaw.com.pl/images/e2893576-0aa9-47d6-9ece-d5a51bd4d98e.jpg"; }} />
             </div>
@@ -197,7 +234,7 @@ function App() {
               <p><strong>{about.short_desc}</strong></p>
               <p style={{fontSize: '0.95rem', opacity: 0.8}}>{about.long_desc}</p>
             </div>
-          </div>
+          </motion.div>
         </motion.section>
       </div>
 

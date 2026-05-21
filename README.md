@@ -8,7 +8,7 @@ Zasadniczym pytaniem podczas tworzenia nowej strony doradczej/usługowej nie jes
 
 ## 1. Architektura Premium: Skupienie, Intymność, Spokój
 
-Podjęliśmy decyzję o rezygnacji ze standardowych medycznych bieli i chłodnego błękitu. Zamiast tego przygotowaliśmy design wykorzystujący matowy odcień głębokiego granatu (tzw. "Dark Space"), podświetlany w tle cichymi, pływającymi kolorami relaksu i ciepła (żółć i magenta z Twojej oryginalnej koncepcji).
+Podjęliśmy decyzję o rezygnacji ze standardowych medycznych bieli i chłodnego błękitu. Zamiast tego przygotowaliśmy design wykorzystujący matowy odcień głębokiego granatu (tzw. "Dark Space"), podświetlany w tle cichymi, pływającymi kolorami relaksu i ciepła (żółć i magenta z pierwotnej koncepcji).
 
 *   **Boutique vs Moloch:** Pacjent dzwoniący do prywatnego gabinetu, ucieka przed zgiełkiem NFZ i poczuciem "bycia kolejnym numerem w tabeli". Twoja strona oddaje ducha profesjonalizmu wyższej klasy, wprowadzając nastrojowy i dyskretny element tzw. "szklanego interfejsu" (Glassmorphism), znanego z najnowszych ekskluzywnych produktów technologicznych (jak u Apple).
 *   **Wydajność 2026:** Strona jest ufundowana o skomplikowaną inżynierię nowoczesnego ekosystemu JavaScript (React), niemniej w przeciwieństwie do potężnych, popularnych i "zapchanych" CMS-ów jak WordPress, aplikacja po odesłaniu kompiluje się do miliskendowych obciążeń. Jest to bezszwowa wizytówka `Single Page Application` uwielbiana przez wyszukiwarkę Google na rynkach mobilnych (Telefony).
@@ -44,4 +44,4 @@ Jako deweloperzy postaraliśmy się wpakować zaawansowane skrypty do samej ukry
 *   **Algorytmika Meta Tagi:** Odwiedzający lub pozycjonujący Google Robot po przybyciu trafia na potężną dawkę ukrytych pod kodem źródłowym instrukcji `Open Graph`. To tagi sterowane bezpośrednio przez nas dla Facebook'a, Apple OS, WhatsApp'a czy LinkedIn'a. Linki udostepniane pacjentom zamieniają się gładko w przepiękne okna z podglądem Ciebie jako eksperta i eleganckim tytułem kliniki.
 *   **Odseparowany Tekst od Bazy:** Utworzyliśmy specjalny wirtualny dokument typu `JSON`, w którym znajduje się tylko treść tekstowa i linki. Do "naprawy" literówki nigdy więcej nie będziesz musiał wynajmować informatyków – po prostu edytujemy tekst pod hasłami. Wszystko to bez instalowania trudnych, awaryjnych baz danych tj. bazy SQL na serwerach zewnętrznych, dzięki modelowi "NoBackend".
 
-> *Dokumentacja techniczna dla środowiska wdrożeniowego (Node, npm i komendy Vite) spoczywa teraz w przeznaczonym i usuniętym widoku pliku README_TECH.md w logach deweloperskich projektu.*
+

@@ -1,24 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --bg-primary: #0a1128;
-  --bg-secondary: #141f3d;
-  --text-primary: #ffffff;
-  --text-secondary: #aeb4c6;
+  --bg-primary: #1a221e; /* Głęboki, miękki eukaliptusowy grafit */
+  --bg-secondary: #222c26; /* Nieco jaśniejszy odcień dla stopki/paneli */
+  --text-primary: #f5f3ef; /* Ciepła, lniana biel */
+  --text-secondary: #a6b2a8; /* Przygaszona szałwiowa szarość tekstu pomocniczego */
   
-  --accent-magenta: #c92a7f;
-  --accent-magenta-glow: rgba(201, 42, 127, 0.4);
-  --accent-yellow: #f6c013;
-  --accent-green: #38b000;
+  --accent-sand: #dfc29f; /* Ciepły piasek / zgaszone złoto */
+  --accent-sand-dark: #b89b78; /* Ciemniejsza wersja dla gradientów */
+  --accent-sand-glow: rgba(223, 194, 159, 0.25);
   
-  --glass-bg: rgba(20, 31, 61, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  --accent-eucalyptus: #7e9582; /* Kojąca zieleń eukaliptusa */
+  --accent-eucalyptus-glow: rgba(126, 149, 130, 0.15);
+  
+  --glass-bg: rgba(245, 240, 228, 0.05); /* Bardzo delikatna, ciepła szklana powłoka */
+  --glass-border: rgba(245, 240, 228, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   
   --radius-pill: 50px;
   --radius-card: 20px;
   
-  --transition: all 0.3s ease;
+  --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Płynniejsze przejścia */
+  
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Outfit', sans-serif;
 }
 
 * {
@@ -31,17 +36,26 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom; /* Blokuje poziome przesuwanie, pozwala na pionowe i zoom */
+}
+
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 500;
   line-height: 1.2;
+  overflow-wrap: break-word; /* Fix for mobile overflow */
 }
 
 a {
@@ -55,6 +69,8 @@ a {
   padding: 0 20px;
   position: relative;
   z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Glassmorphism utilities */
@@ -78,29 +94,30 @@ a {
   transition: var(--transition);
   border: none;
   outline: none;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-body);
   text-decoration: none;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-magenta), #9e145e);
-  color: white;
-  box-shadow: 0 4px 15px var(--accent-magenta-glow);
+  background: linear-gradient(135deg, var(--accent-sand), var(--accent-sand-dark));
+  color: var(--bg-primary);
+  box-shadow: 0 4px 15px var(--accent-sand-glow);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px var(--accent-magenta-glow);
+  box-shadow: 0 8px 25px var(--accent-sand-glow);
+  filter: brightness(1.05);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--accent-yellow);
-  border: 2px solid var(--accent-yellow);
+  color: var(--accent-sand);
+  border: 2px solid var(--accent-sand);
 }
 
 .btn-secondary:hover {
-  background: rgba(246, 192, 19, 0.1);
+  background: rgba(223, 194, 159, 0.1);
   transform: translateY(-2px);
 }
 
@@ -108,7 +125,9 @@ a {
   display: inline-block;
   padding: 6px 16px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(245, 240, 228, 0.05);
+  border: 1px solid rgba(245, 240, 228, 0.10);
+  color: var(--accent-sand);
   font-size: 0.9rem;
   font-weight: 500;
 }
