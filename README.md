@@ -1,47 +1,79 @@
-# Gabinet Psychoterapeutyczny - Nowa Przestrzeń Internetowa
+# 🌿 mgr Łukasz Piątek — Gabinet Psychoterapeutyczny
 
-Niniejszy dokument stanowi krótkie podsumowanie założeń i wdrożeń zrealizowanych na Twojej nowej, autorskiej stronie internetowej w porównaniu do najczęstszego wrocławskiego rynku usług terapeutycznych.
+> Autorski, ultra-premium serwis internetowy stworzony dla gabinetu psychologiczno-psychoterapeutycznego we Wrocławiu. Oparty o nowoczesną technologię Single Page Application (SPA), zoptymalizowany pod kątem pozycjonowania (Local SEO) oraz bezkonkurencyjnej płynności i wygody użytkowania.
 
-Zasadniczym pytaniem podczas tworzenia nowej strony doradczej/usługowej nie jest *"jak upchnąć jak najwięcej tekstu"*, ale *"jakie doświadczenia (UX - User Experience) budujemy w pierwszych sekundach wizyty potencjalnego klienta"*. Poniższe opracowanie stanowi naszą ostateczną odpowiedź na to wyzwanie.
-
----
-
-## 1. Architektura Premium: Skupienie, Intymność, Spokój
-
-Podjęliśmy decyzję o rezygnacji ze standardowych medycznych bieli i chłodnego błękitu. Zamiast tego przygotowaliśmy design wykorzystujący matowy odcień głębokiego granatu (tzw. "Dark Space"), podświetlany w tle cichymi, pływającymi kolorami relaksu i ciepła (żółć i magenta z pierwotnej koncepcji).
-
-*   **Boutique vs Moloch:** Pacjent dzwoniący do prywatnego gabinetu, ucieka przed zgiełkiem NFZ i poczuciem "bycia kolejnym numerem w tabeli". Twoja strona oddaje ducha profesjonalizmu wyższej klasy, wprowadzając nastrojowy i dyskretny element tzw. "szklanego interfejsu" (Glassmorphism), znanego z najnowszych ekskluzywnych produktów technologicznych (jak u Apple).
-*   **Wydajność 2026:** Strona jest ufundowana o skomplikowaną inżynierię nowoczesnego ekosystemu JavaScript (React), niemniej w przeciwieństwie do potężnych, popularnych i "zapchanych" CMS-ów jak WordPress, aplikacja po odesłaniu kompiluje się do miliskendowych obciążeń. Jest to bezszwowa wizytówka `Single Page Application` uwielbiana przez wyszukiwarkę Google na rynkach mobilnych (Telefony).
+[![Vite](https://img.shields.io/badge/Vite-8.0.3-646CFF?logo=vite&logoColor=white&style=flat-square)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-19.2.4-61DAFB?logo=react&logoColor=black&style=flat-square)](https://react.dev/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.38.0-FF00C1?logo=framer&logoColor=white&style=flat-square)](https://www.framer.com/motion/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Active-222c26?logo=github&logoColor=white&style=flat-square)](https://pages.github.com/)
+[![RODO Compliant](https://img.shields.io/badge/RODO_GDPR-Compliant-7e9582?style=flat-square)](#)
 
 ---
 
-## 2. Analiza Rynku: Wrocław i Giganci Branży
+## 🎨 System Design & Estetyka Premium
 
-Ciężko prześledzić rynkowe standardy bez odniesienia do znanych potęg medycznych w mieście. Wylistowaliśmy poniżej kilka olbrzymich konkurencyjnych platform. Zależało nam na ocenie ich **siły i słabostek UX**, a także pokazaniu, czym nasz gabinet różni się i dystansuje się już na starcie.
+Wizualna tożsamość witryny została całkowicie przeprojektowana i opiera się na unikalnym koncepcie **"Twilight Eucalyptus & Warm Linen"** („w pół drogi” między surowym jasnym minimalizmem a ciężkim leśnym mrokiem). Projekt unika chłodnych, „szpitalnych” bieli i błękitów na rzecz organicznych tonacji budujących poczucie zaufania, ciepła i dyskrecji.
 
-### Przegląd Wrocławskiej Sceny Konkurencji
-Spojrzałem krytycznie na adresy takie jak giganci:
-*   [PsychoMedic.pl](https://psychomedic.pl/) / [Ginemedica.pl](https://ginemedica.pl/psychoterapia/)
-*   [DCP Wrocław](https://dcp.wroclaw.pl/specjalisci/204/psycholog)
-*   [Superego.com.pl](https://www.superego.com.pl/) / [Psyche.wroclaw.pl](https://psyche.wroclaw.pl/)
-*   [Charakterownia.pl](https://charakterownia.pl/) / [Mentali.pl](https://mentali.pl/) / [Psychologodnowa.pl](https://psychologodnowa.pl/pl/)
-
-**Cechy wspólne tych stron (Słabe strony użyteczności - UX):**
-1.  **Szpitalny stereotyp (Przeładowanie):** To klasyczne i ogromne wielowarstwowe platformy-tablice. Oferują ścianę tekstu i bezosobowy asortyment lekarzy. Ich styl przypomina "Rejestrację ZUS", a nie empatycznego człowieka czekającego z pomocą przy rozmowie. 
-2.  **Skomplikowane ścieżki rezerwacji:** Giganci posiadają rozwijalne formularze i dziesiątki ukrytych ścieżek pod linkami w linkach. Potencjalny zestresowany klient ma utrudnione zadanie odhaczenia swoich potrzeb.
-3.  **Brak dynamiki i przestrzeni oddechu:** Ponieważ trzymają setki wtyczek na przestarzałych korporacyjnych systemach WordPress, strony często są sztywne, wolne i całkowicie pozbawione nowoczesnych płynnych przejść i budowania nastroju poprzez drobne animacje w trakcie przeglądania. Często cierpią na zestarzały design.
-
-### Twoja Karta na tym tle ("Jak To Robimy My")
-1.  **Marka Osobista vs Wyszukiwarki Zespołów:** Odcięliśmy się od bazy danych. Na wejściu witasz klienta jako Ty — wypracowany logotyp z dopiskiem *mgr* natychmiast uwiarygadnia doświadczenie. Od startu eksponujemy wizerunek eksperta. Budujemy ufne relacje z człowiekiem, a nie z korporacyjną "marką". Błędne jest mniemanie, by maskować to szatą ogólnoustrojową, jeśli jest to gabinet jednoosobowy.
-2.  **Wysoce optymalny Lejek Zakupowy:** Na naszej nowej stronie nie ma dziesiątek gąszczy z informacjami z encyklopedii psychologicznej. Oferujesz dwa wyjścia, bardzo klarowne (Dzieci / Dorośli) - i jeden natychmiastowy i pewny punkt rezerwacji przyklejony cały czas (floating widget) z integracją pod darmowe rezerwacje **ZnanyLekarz**. Jest szybko, płynnie, profesjonalnie, i nie ma potknięć.
+*   **Tło (`--bg-primary`):** Miękki, głęboki grafit o zabarwieniu eukaliptusa (`#1a221e`), eliminujący męczące naświetlenie oczu na urządzeniach mobilnych.
+*   **Akcenty piaskowe (`--accent-sand`):** Ciepły piasek i matowe złoto (`#dfc29f`) stosowane dla najważniejszych interakcji i wezwań do działania (CTA).
+*   **Szklany len (`--glass-bg`):** Subtelne panele w technologii glassmorphismu z ciepłym, lnianym odcieniem i delikatnymi, naturalnymi ramkami.
+*   **Typografia literacka:** Luksusowy, szeryfowy krój pisma **Cormorant Garamond** nadaje nagłówkom ludzki, pełen szacunku i wysublimowany ton. Został on zestawiony z nowoczesnym i czytelnym krojem **Outfit** dla tekstu głównego.
 
 ---
 
-## 3. SEO, Optymalizacje Rozmiarów i Technika Panelu
+## ✨ Nowoczesne Naleciałości & Ożywienie Strony
 
-Jako deweloperzy postaraliśmy się wpakować zaawansowane skrypty do samej ukrytej warstwy strony internetowej. Co otrzymałeś w paczce?
-*   **Mobilne Hamburger Menu:** Błyskawiczne przejścia nawigacyjne dostrojone rygorystycznie pod mniejsze ekrany dotykowe i urządzenia Apple. Pasek staje się estetyczną przezroczystą taflą szkła w trakcie przeglądania.
-*   **Algorytmika Meta Tagi:** Odwiedzający lub pozycjonujący Google Robot po przybyciu trafia na potężną dawkę ukrytych pod kodem źródłowym instrukcji `Open Graph`. To tagi sterowane bezpośrednio przez nas dla Facebook'a, Apple OS, WhatsApp'a czy LinkedIn'a. Linki udostepniane pacjentom zamieniają się gładko w przepiękne okna z podglądem Ciebie jako eksperta i eleganckim tytułem kliniki.
-*   **Odseparowany Tekst od Bazy:** Utworzyliśmy specjalny wirtualny dokument typu `JSON`, w którym znajduje się tylko treść tekstowa i linki. Do "naprawy" literówki nigdy więcej nie będziesz musiał wynajmować informatyków – po prostu edytujemy tekst pod hasłami. Wszystko to bez instalowania trudnych, awaryjnych baz danych tj. bazy SQL na serwerach zewnętrznych, dzięki modelowi "NoBackend".
+Strona reaguje na obecność użytkownika w sposób niezwykle elegancki, płynny i naturalny:
 
+*   🍃 **Dryfujące Świetliki (Fireflies):** Trzy mikro-cząsteczki światła w kolorze ciepłego piasku dryfujące po nieskończonych, fizycznych trajektoriach w tle. Nadają one stronie "życie", a jednocześnie działają kojąco i relaksująco.
+*   🖱️ **Luksusowy Hover na Kartach:** Najechanie na karty usług powoduje ich uniesienie o `10px`, płynne przejście obramowania w ciepły piaskowy blask oraz zmianę tła na ciepły len.
+*   🧭 **Inteligentna Nawigacja (Scrollspy):** Menu górne dynamicznie śledzi pozycję użytkownika przy przewijaniu za pomocą natywnego API `IntersectionObserver`. Linki w menu podświetlają się automatycznie z płynnym rozsuwaniem dolnej krawędzi.
+*   🍪 **Szklany Baner RODO:** W pełni animowany baner ciasteczek z opóźnionym, eleganckim wejściem. Posiada wbudowaną pamięć podręczną (`localStorage`), zapamiętującą zgodę pacjenta.
 
+---
+
+## 🚀 Optymalizacje Techniczne & SEO
+
+Strona została zoptymalizowana zgodnie z rygorystycznymi standardami technicznymi na rok 2026:
+
+1.  **Local SEO & Rich Snippets:** 
+    W nagłówku zaimplementowano pełne **dane strukturalne JSON-LD (`@type: Therapist`)** łączące gabinet we Wrocławiu z danymi kontaktowymi, współrzędnymi geograficznymi, godzinami otwarcia oraz profilem ZnanyLekarz. Zapewnia to maksymalną widoczność w wynikach wyszukiwania Google Maps oraz Local Pack.
+2.  **Pełne Mobile-First:**
+    Wszystkie elementy są w 100% responsywne. Zrezygnowano z uciążliwych stylów inline na rzecz elastycznego pozycjonowania CSS, dzięki czemu strona ładuje się bezbłędnie na każdym typie smartfona bez marginesów bocznych (horizontal overflow).
+3.  **Wydajność 60 FPS:**
+    Skrypty Framer Motion zostały zoptymalizowane pod kątem płynnego renderowania bez obciążania układu graficznego na starszych telefonach komórkowych.
+
+---
+
+## 💻 Zarządzanie Treścią (Decoupled Content)
+
+Treść witryny jest całkowicie odseparowana od kodu źródłowego. Znajduje się w pliku `src/content.json`. 
+
+### Jak edytować teksty:
+1.  **Lokalnie:** Zmień odpowiednie wartości w pliku `src/content.json`.
+2.  **Przez Panel Admina:** Wejdź na stronę pod adres `/#admin` – otworzy się zintegrowany edytor tekstowy, który pozwoli Ci edytować dane graficznie i skopiować gotowy plik JSON jednym kliknięciem!
+
+---
+
+## 🛠️ Uruchomienie & Wdrożenie
+
+Projekt wykorzystuje środowisko **Node.js** oraz menedżer pakietów **npm**.
+
+### Uruchomienie wersji deweloperskiej:
+```bash
+npm run dev
+```
+
+### Budowa wersji produkcyjnej (Build):
+```bash
+npm run build
+```
+
+### Publikacja na serwerze GitHub Pages:
+Wdrożyliśmy zaawansowany tunel SSH fallback (przez port 443), co gwarantuje natychmiastową wysyłkę na GitHub Pages w dowolnej sieci (nawet przy zablokowanym porcie 22). Aby opublikować stronę, uruchom:
+```bash
+npm run deploy
+```
+
+---
+*Projekt zrealizowany z dbałością o najmniejszy detal estetyczny i techniczny.*
