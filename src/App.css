@@ -251,6 +251,9 @@
 .pricing-wrapper {
   max-width: 900px;
   margin: 0 auto;
+  border-radius: var(--radius-card);
+  padding: 20px 0;
+  overflow: hidden;
 }
 
 .pricing-item {
@@ -297,6 +300,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+  padding: 60px;
+  border-radius: var(--radius-card);
 }
 
 .about-img {
@@ -417,6 +422,19 @@
   justify-content: center;
 }
 
+/* Klimatyczne świetliki w tle */
+.firefly {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: var(--accent-sand);
+  border-radius: 50%;
+  filter: blur(1px);
+  box-shadow: 0 0 10px var(--accent-sand), 0 0 20px var(--accent-sand-glow);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-title {
@@ -424,8 +442,10 @@
   }
   .about-grid {
     grid-template-columns: 1fr;
+    padding: 40px;
   }
 }
+
 @media (max-width: 768px) {
   .desktop-only {
     display: none !important;
@@ -435,10 +455,41 @@
   }
   .cards {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .card {
+    padding: 35px 25px;
   }
   .pricing-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    padding: 20px 25px;
+  }
+  .about-grid {
+    padding: 30px 20px;
+    gap: 30px;
+  }
+  .booking-widget {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-subtitle {
+    margin-bottom: 40px;
   }
 }

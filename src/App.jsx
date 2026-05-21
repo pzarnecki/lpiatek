@@ -59,6 +59,38 @@ function App() {
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
       
+      {/* Klimatyczne Świetliki (Fireflies) dryfujące w tle */}
+      <motion.div 
+        className="firefly"
+        style={{ top: '15vh', left: '15%' }}
+        animate={{ 
+          y: [0, -30, 20, 0],
+          x: [0, 20, -10, 0],
+          opacity: [0.1, 0.3, 0.15, 0.1]
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="firefly"
+        style={{ top: '45vh', right: '10%' }}
+        animate={{ 
+          y: [0, 40, -20, 0],
+          x: [0, -30, 20, 0],
+          opacity: [0.08, 0.25, 0.12, 0.08]
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="firefly"
+        style={{ top: '75vh', left: '25%' }}
+        animate={{ 
+          y: [0, -50, 30, 0],
+          x: [0, 40, -20, 0],
+          opacity: [0.12, 0.3, 0.18, 0.12]
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+
       {/* Floating Świetlik - Only visible when scrolled down */}
       <motion.div 
         className="blob-point"
@@ -129,7 +161,7 @@ function App() {
           viewport={{ once: true, amount: 0.1 }}
           variants={fadeInUp}
         >
-          <h2 className="hero-subtitle">{hero.subtitle}</h2>
+          <p className="hero-subtitle">{hero.subtitle}</p>
           <h1 className="hero-title">{hero.title}</h1>
           <p className="hero-content">{hero.description}</p>
           
@@ -166,8 +198,8 @@ function App() {
                 whileHover={{ 
                   y: -10, 
                   scale: 1.02, 
-                  backgroundColor: "rgba(255, 255, 255, 0.05)",
-                  borderColor: "rgba(255, 255, 255, 0.25)"
+                  backgroundColor: "rgba(245, 240, 228, 0.08)",
+                  borderColor: "rgba(223, 194, 159, 0.3)"
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
@@ -196,7 +228,6 @@ function App() {
           
           <motion.div 
             className="pricing-wrapper glass" 
-            style={{borderRadius: 'var(--radius-card)', padding: '20px 0'}}
             variants={fadeInUp}
           >
             {pricing.items.map((item, idx) => (
@@ -222,7 +253,6 @@ function App() {
         >
           <motion.div 
             className="about-grid glass" 
-            style={{padding: '60px', borderRadius: 'var(--radius-card)'}}
             variants={fadeInUp}
           >
             <div className="about-img">
